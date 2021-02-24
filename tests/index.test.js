@@ -88,57 +88,12 @@ describe("Stage II: testing user creation and login", () => {
     expect(correct).toBe(true);
   });
 
-<<<<<<< HEAD
-        expect(response.status).toBe(400)
-        expect(response.body.errorCode).toBe("wrong_credentials")
-    })
-
-    it("should return a valid token when loggin in with correct credentials", async () => { // "VALID_TOKEN"
-        const response = await request.post("/users/login").send(validCredentials) // 
-
-        const { token } = response.body
-        expect(token).toBe(validToken)
-    })
-
-    it("should NOT return a valid token when loggin in with INCORRECT credentials", async () => {
-        const response = await request.post("/users/login").send(invalidCredentials)
-
-        expect(response.status).toBe(400)
-
-        const { token } = response.body
-        expect(token).not.toBeDefined()
-    })
-
-})
-
-// III: Testing protected endpoints cats pls work
-
-describe("Stage III: testing get cats", () => {
-  it("should return a response with a url from /users/cats when provided with a correct token", async () => {
-    const response = await request.get("/users/cats").send({ token: validtocken });
-    console.log(response.error);
-    expect(response.status).toBe(201);
-    const { url } = response.body;
-    expect(url).toBeDefined();
-    expect(typeof url).toBe("string");
-  });
-
-  it("should NOT return a response with a url from /users/cats when provided with a INCORRECT token", async () => {
-    const response = await request.get("/users/cats").send({ token: "" });
-    console.log(response.error);
-    expect(response.status).toBe(401);
-    const { url } = response.body;
-    expect(url).not.toBeDefined();
-  });
-});
-=======
   it("should NOT return a valid token when loggin in with INCORRECT credentials", async () => {
     const response = await request.post("/users/login").send(incorrectCredentials);
 
     expect(response.status).toBe(401);
 
     const { token } = response.body;
->>>>>>> parent of dd24fed (Revert "finished")
 
     expect(token).not.toBeDefined();
   });
