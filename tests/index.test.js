@@ -98,7 +98,7 @@ describe("Stage II: testing user creation and login", () => {
     expect(token).not.toBeDefined();
   });
 });
-// III: Testing protected endpoints cats
+// III: Testing protected endpoints cats pls work
 
 describe("Stage III: testing get cats", () => {
   it("should return a response with a url from /users/cats when provided with a correct token", async () => {
